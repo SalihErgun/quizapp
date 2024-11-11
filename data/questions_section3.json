@@ -1,0 +1,43 @@
+[
+    {
+      "id": 1,
+      "question": "Mount Everest is the highest mountain in the world.",
+      "type": "true-false",
+      "options": ["True", "False"],
+      "correct": "True",
+      "points": 5
+    },
+    {
+      "id": 2,
+      "question": "What is the largest planet in our solar system?",
+      "type": "single-choice",
+      "options": ["Earth", "Mars", "Jupiter", "Venus"],
+      "correct": "Jupiter",
+      "points": 10
+    },
+    {
+      "id": 3,
+      "question": "Which of the following are mammals?",
+      "type": "multiple-choice",
+      "options": ["Whale", "Shark", "Eagle", "Tiger"],
+      "correct": ["Whale", "Tiger"],
+      "points": 15
+    },
+    {
+      "id": 4,
+      "question": "The Great Wall of China is visible from space.",
+      "type": "true-false",
+      "options": ["True", "False"],
+      "correct": "False",
+      "points": 5
+    },
+    {
+      "id": 5,
+      "question": "Which element has the atomic number 1?",
+      "type": "single-choice",
+      "options": ["Oxygen", "Hydrogen", "Carbon", "Nitrogen"],
+      "correct": "Hydrogen",
+      "points": 10
+    }
+  ]
+  
