@@ -1,0 +1,14 @@
+project/
+│
+├── main.py              # Ana çalıştırılabilir dosya
+├── user.py              # Kullanıcı yönetimiyle ilgili sınıf ve fonksiyonlar
+├── question_bank.py     # Soru havuzu ile ilgili sınıf ve işlemler
+├── exam.py              # Sınav mekanizmasıyla ilgili sınıflar
+├── timer.py             # Zamanlayıcı sınıfı
+├── result_handler.py    # Sonuç hesaplama ve gösterim işlemleri
+├── data/
+│   ├── questions_section1.json  # Soruların saklandığı dosya
+│   └── users.json               # Kullanıcı verisi
+└── utils/
+    ├── encryption.py    # Şifreleme işlemleri için yardımcı fonksiyonlar
+    └── helpers.py       # Yardımcı küçük fonksiyonlar (örneğin, doğrulamalar)
