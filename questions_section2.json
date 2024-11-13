@@ -1,0 +1,72 @@
+[
+    {
+        "id": 11,
+        "question_text": "Which function is used to output data to the console in Python?",
+        "options": ["print", "echo", "output", "show"],
+        "type": "Single-Choice",
+        "score": 10
+    },
+    {
+        "id": 12,
+        "question_text": "Which of the following is a Python framework for web development?",
+        "options": ["Django", "React", "Angular", "Laravel"],
+        "type": "Single-Choice",
+        "score": 10
+    },
+    {
+        "id": 13,
+        "question_text": "Which keyword is used to define a function in Python?",
+        "options": ["function", "def", "define", "func"],
+        "type": "Single-Choice",
+        "score": 10
+    },
+    {
+        "id": 14,
+        "question_text": "Which operator is used for exponentiation in Python?",
+        "options": ["^", "**", "*", "//"],
+        "type": "Single-Choice",
+        "score": 10
+    },
+    {
+        "id": 15,
+        "question_text": "Which data type is used to store multiple items in a single variable?",
+        "options": ["int", "list", "float", "char"],
+        "type": "Single-Choice",
+        "score": 10
+    },
+    {
+        "id": 16,
+        "question_text": "What is the file extension for Python files?",
+        "options": [".java", ".py", ".php", ".js"],
+        "type": "Single-Choice",
+        "score": 10
+    },
+    {
+        "id": 17,
+        "question_text": "Which of these is NOT a Python data type?",
+        "options": ["list", "dict", "integer", "array"],
+        "type": "Single-Choice",
+        "score": 10
+    },
+    {
+        "id": 18,
+        "question_text": "What does 'len' function do?",
+        "options": ["Length of a string", "Length of a list", "Both", "None of the above"],
+        "type": "Single-Choice",
+        "score": 10
+    },
+    {
+        "id": 19,
+        "question_text": "How do you insert comments in Python code?",
+        "options": ["//", "/*", "#", "%"],
+        "type": "Single-Choice",
+        "score": 10
+    },
+    {
+        "id": 20,
+        "question_text": "Which of the following is a Python data structure?",
+        "options": ["Set", "List", "Dictionary", "All of the above"],
+        "type": "Single-Choice",
+        "score": 10
+    }
+]
