@@ -1,0 +1,13 @@
+{
+    "username": "user1",
+    "surname": "surname1",
+    "student_number": "12345",
+    "attempts": 1,
+    "score": 4.583333333333333,
+    "success_per_section": {
+        "section1": 10.0,
+        "section2": 0.0,
+        "section3": 5.0,
+        "section4": 3.3333333333333335
+    }
+}

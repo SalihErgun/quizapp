@@ -1,0 +1,72 @@
+[
+    {
+        "id": 31,
+        "question_text": "Which are Python libraries for data analysis?",
+        "options": ["Pandas", "NumPy", "Flask", "Scikit-learn", "Django"],
+        "type": "Multiple-Choice(3 correct answer)",
+        "score": 15
+    },
+    {
+        "id": 32,
+        "question_text": "Which are common Python data structures?",
+        "options": ["List", "Tuple", "Tree", "Set", "Queue"],
+        "type": "Multiple-Choice(3 correct answer)",
+        "score": 15
+    },
+    {
+        "id": 33,
+        "question_text": "Which are valid escape characters in Python?",
+        "options": ["\\n", "\\t", "\\r", "\\b", "\\s"],
+        "type": "Multiple-Choice(3 correct answer)",
+        "score": 15
+    },
+    {
+        "id": 34,
+        "question_text": "Which are popular Python GUI libraries?",
+        "options": ["Tkinter", "PyQt", "Django", "WxPython", "Flask"],
+        "type": "Multiple-Choice(3 correct answer)",
+        "score": 15
+    },
+    {
+        "id": 35,
+        "question_text": "Which libraries are used for machine learning in Python?",
+        "options": ["Keras", "TensorFlow", "Pandas", "NumPy", "SciPy"],
+        "type": "Multiple-Choice(3 correct answer)",
+        "score": 15
+    },
+    {
+        "id": 36,
+        "question_text": "Which libraries support data visualization in Python?",
+        "options": ["Matplotlib", "Seaborn", "Django", "Plotly", "Scikit-learn"],
+        "type": "Multiple-Choice(3 correct answer)",
+        "score": 15
+    },
+    {
+        "id": 37,
+        "question_text": "Which are Python libraries for numerical computing?",
+        "options": ["NumPy", "SciPy", "Pandas", "Flask", "Math"],
+        "type": "Multiple-Choice(3 correct answer)",
+        "score": 15
+    },
+    {
+        "id": 38,
+        "question_text": "Which are built-in types for storing collections of data in Python?",
+        "options": ["List", "Set", "Queue", "Dictionary", "Tuple"],
+        "type": "Multiple-Choice(3 correct answer)",
+        "score": 15
+    },
+    {
+        "id": 39,
+        "question_text": "Which are popular data formats used in Python?",
+        "options": ["CSV", "JSON", "HTML", "XML", "PDF"],
+        "type": "Multiple-Choice(3 correct answer)",
+        "score": 15
+    },
+    {
+        "id": 40,
+        "question_text": "Which are commonly used Python testing frameworks?",
+        "options": ["unittest", "pytest", "nose", "mock", "Tox"],
+        "type": "Multiple-Choice(3 correct answer)",
+        "score": 15
+    }
+]
