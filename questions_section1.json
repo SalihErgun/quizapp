@@ -1,0 +1,72 @@
+[
+    {
+        "id": 1,
+        "question_text": "Python is an interpreted language.",
+        "options": ["True", "False"],
+        "type": "True-False",
+        "score": 5
+    },
+    {
+        "id": 2,
+        "question_text": "Python was created by Guido van Rossum.",
+        "options": ["True", "False"],
+        "type": "True-False",
+        "score": 5
+    },
+    {
+        "id": 3,
+        "question_text": "In Python, indentation is optional.",
+        "options": ["True", "False"],
+        "type": "True-False",
+        "score": 5
+    },
+    {
+        "id": 4,
+        "question_text": "The 'print' function outputs data to the console in Python.",
+        "options": ["True", "False"],
+        "type": "True-False",
+        "score": 5
+    },
+    {
+        "id": 5,
+        "question_text": "Python is statically typed.",
+        "options": ["True", "False"],
+        "type": "True-False",
+        "score": 5
+    },
+    {
+        "id": 6,
+        "question_text": "Python supports object-oriented programming.",
+        "options": ["True", "False"],
+        "type": "True-False",
+        "score": 5
+    },
+    {
+        "id": 7,
+        "question_text": "Lists in Python are mutable.",
+        "options": ["True", "False"],
+        "type": "True-False",
+        "score": 5
+    },
+    {
+        "id": 8,
+        "question_text": "Python 3.x is backward compatible with Python 2.x.",
+        "options": ["True", "False"],
+        "type": "True-False",
+        "score": 5
+    },
+    {
+        "id": 9,
+        "question_text": "Tuples in Python are immutable.",
+        "options": ["True", "False"],
+        "type": "True-False",
+        "score": 5
+    },
+    {
+        "id": 10,
+        "question_text": "Python can be used for web development.",
+        "options": ["True", "False"],
+        "type": "True-False",
+        "score": 5
+    }
+]
