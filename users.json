@@ -4,12 +4,12 @@
         "surname": "Ergun",
         "student_number": "1",
         "attempts": 1,
-        "score": 58.333333333333336,
+        "score": 98.33,
         "success_per_section": {
             "section1": 100.0,
-            "section2": 60.0,
-            "section3": 40.0,
-            "section4": 33.333333333333336
+            "section2": 100.0,
+            "section3": 100.0,
+            "section4": 93.33
         }
     }
 }
