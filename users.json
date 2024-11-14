@@ -89,5 +89,18 @@
             "section3": 0,
             "section4": 0
         }
+    },
+    "v": {
+        "username": "v",
+        "surname": "r",
+        "student_number": "2",
+        "attempts": 1,
+        "score": 35.84,
+        "success_per_section": {
+            "section1": 40.0,
+            "section2": 20.0,
+            "section3": 50.0,
+            "section4": 33.35
+        }
     }
 }
