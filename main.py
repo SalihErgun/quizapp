@@ -1,92 +1,64 @@
-import os
-import json
 from user import User
-from result import Result
-from timer import Timer
-from exam import Exam
-from questions import Question
+from question import Question
 
-
-def main():
-    # Dosya yolları
-    user_data_path = "./data/users.json"
-    questions_path = "./data/"
-    answers_path = "./data/answers.json"
-    time_limit = 300  # Sınav süresi (saniye cinsinden)
-
-    # JSON dosyaları yoksa oluştur
-    if not os.path.exists(user_data_path):
-        with open(user_data_path, "w") as file:
-            json.dump({}, file)
-
-    # Kullanıcı girişini al
-    print("Welcome to the Multi-Part Quiz Application!")
-    name = input("Enter your name: ")
+def start_exam():
+    username = input("Enter your username: ")
     surname = input("Enter your surname: ")
-    student_no = input("Enter your student number: ")
+    student_number = input("Enter your student number: ")
 
-    users = User.load_user_data(user_data_path)
-    if users is not None:
-        print("User data loaded successfully")
-    # Kullanıcıyı oluştur
-    user = User(name, surname, student_no)
+    user = User(username, surname, student_number)
 
-    # Kullanıcı doğrulaması
-    with open(user_data_path, "r") as file:
-        users = json.load(file)
-        if student_no in users and users[student_no]["attempts"] >= 2:
-            print("You have already used your 2 exam attempts. You cannot retake the exam.")
-            return
+    # Kullanıcı verilerini yükle
+    user.load_user_data()
 
-    # Yeni bir kullanıcı ise veriyi kaydet
-    if student_no not in users:
-        user.save_user_data(user_data_path)
+    if not user.has_attempts_left():
+        print(f"{username}, you have exceeded the number of allowed attempts.")
+        return
 
-    # Zamanlayıcı ve sonuç nesnelerini oluştur
-    timer = Timer(time_limit)
-    result = Result()
+    user.increment_attempts()
+    user.save_user_data()
+    print(f"Welcome {username} {surname}!")
 
-    # Sınav nesnesini başlat
-    exam = Exam(user, timer, result)
+    total_score = 0  # Toplam puan
+    all_sections_passed = True  # Her bölümün başarıyla geçildiğini kontrol etmek için
 
-    # Sınavı başlat
-    exam.start_exam()
-
-    # Soruları yükle
-    sections = [f"questions_section{i}.json" for i in range(1, 5)]
-    question_bank = QuestionBank()
-
-    for idx, section_file in enumerate(sections, 1):
-        section_path = os.path.join(questions_path, section_file)
-        with open(section_path, "r") as file:
-            questions_data = json.load(file)
-            for question in questions_data:
-                q = Question(question["question"], question["options"], question["correct"])
-                question_bank.add_question(f"Section {idx}", q)
-
-    # Her bir bölüm için soruları seç ve kullanıcıdan cevap al
     for section in range(1, 5):
-        print(f"--- Section {section} ---")
-        random_questions = question_bank.get_random_questions(f"Section {section}", 5)
+        print(f"\nStarting Section {section}...")
 
-        section_results = []
-        for question in random_questions:
-            exam.display_question(question)
-            user_answer = exam.get_user_input(question)
-            while not exam.validate_input(user_answer, "multiple" if isinstance(question.correct_answer, list) else "single"):
-                print("Invalid input! Please try again.")
-                user_answer = exam.get_user_input(question)
+        question = Question(section)  # Soru setini oluştur
+        correct_answers = 0
+        total_questions = 5  # Her bölümde 5 soru olduğunu varsayıyoruz
 
-            # Cevabı değerlendir
-            is_correct = question.check_answer(user_answer)
-            section_results.append(is_correct)
+        for _ in range(total_questions):
+            score = question.ask_question()  # Soruyu sor
+            correct_answers += (score / question.question_score)  # Doğru cevap sayısını ekle
 
-        # Sonuçları kaydet
-        correct_answers = sum(section_results)
-        result.section_scores[f"Section {section}"] = (correct_answers / len(random_questions)) * 100
+        # Her bölüm sonunda başarıyı kullanıcıya göster
+        user.update_score(f"section{section}", correct_answers, total_questions)
+        section_score = round(user.success_per_section[f"section{section}"], 2)  # Bölüm puanını yuvarla
+        total_score += section_score  # Toplam puana ekle
 
-    # Sınavı bitir ve sonuçları göster
-    exam.end_exam()
+        # Bölüm puanı 100 üzerinden ve virgül sonrası 2 basamağa sınırlanmış şekilde gösteriliyor
+        print(f"Section {section} completed. Correct Answers: {round(correct_answers, 2)}/{total_questions}, Score: {section_score:.2f}/100")
 
+        # Bölümde %50 başarıdan azsa, öğrenciyi başarısız say
+        if section_score < 50:
+            all_sections_passed = False
+
+    user.save_user_data()
+
+    # Genel başarıyı hesapla
+    overall_score = round(user.get_score(), 2)  # Genel başarıyı yuvarla
+
+    # Genel başarıyı virgül sonrası 2 basamağa yuvarla
+    print(f"Your overall success score is {overall_score:.2f}%")
+
+    if overall_score >= 75 and all_sections_passed:
+        print("You passed the exam!")
+    else:
+        print("You failed the exam.")
+
+# Programın başlangıç noktası
 if __name__ == "__main__":
-    main()
+    start_exam()
+

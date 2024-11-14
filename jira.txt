@@ -1,3 +1,0 @@
-Dusty Tasks
-    issue_id_1 = Write results class
-    
