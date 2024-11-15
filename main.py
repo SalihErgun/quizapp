@@ -25,7 +25,7 @@ def start_exam_gui():
 def start_exam():
     while True:
         exam_finished = False  # Bayrak
-        time_limit = 15
+        time_limit = 1800
         timer = Timer(time_limit)
         timer.start_timer()
         # Kullanıcı bilgilerini al
