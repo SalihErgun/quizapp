@@ -24,7 +24,7 @@ class User:
             else:
                 print(f"User '{self.username}' not found in the database. Adding user...")
                 self.save_user_data(users_data)
-
+                
         except FileNotFoundError:
             print("users.json file not found. Creating a new one.")
             self.save_user_data()
@@ -40,14 +40,20 @@ class User:
             except (FileNotFoundError, json.JSONDecodeError):
                 users_data = {}
 
-        users_data[self.username] = {
-            "username": self.username,
-            "surname": self.surname,
-            "student_number": self.student_number,
-            "attempts": self.attempts,
-            "score": round(self.score, 2),
-            "success_per_section": {k: round(v, 2) for k, v in self.success_per_section.items()}
-        }
+        if self.username not in users_data:
+            users_data[self.username] = {
+                "username": self.username,
+                "surname": self.surname,
+                "student_number": self.student_number,
+                "attempts": self.attempts,
+                "score": self.score,
+                "success_per_section": self.success_per_section
+            }
+        else:
+            users_data[self.username]["student_number"] = self.student_number
+            users_data[self.username]["attempts"] = self.attempts
+            users_data[self.username]["score"] = self.score
+            users_data[self.username]["success_per_section"] = self.success_per_section
 
         with open("users.json", "w") as f:
             json.dump(users_data, f, indent=4)
@@ -59,13 +65,15 @@ class User:
         self.attempts += 1
 
     def update_score(self, section, correct_answers, total_questions):
-        section_score = round((correct_answers / total_questions) * 100, 2) if total_questions > 0 else 0
+        # Bölüm puanını 100 üzerinden normalize et
+        section_score = (correct_answers / total_questions) * 100 if total_questions > 0 else 0
         self.success_per_section[section] = section_score
         self.calculate_overall_score()
 
     def calculate_overall_score(self):
+        # Genel puanı tüm bölümlerin ortalaması olarak hesapla, 100 üzerinden sınırlı
         total_score = sum(self.success_per_section.values())
-        self.score = round(total_score / len(self.success_per_section), 2)
+        self.score = total_score / len(self.success_per_section)
 
     def get_score(self):
-        return round(self.score, 2)
+        return self.score

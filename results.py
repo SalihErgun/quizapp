@@ -4,9 +4,15 @@ class Result:
         self.overall_score = 0
 
     def calculate_section_scores(self, section_id, correct_answers, total_questions):
-        score = (correct_answers / total_questions) * 100 if total_questions else 0
+        if total_questions == 0:
+            score = 0
+        else:
+            score = (correct_answers / total_questions) * 100
         self.section_scores[section_id] = round(score, 2)
         return self.section_scores[section_id]
+
+    def get_section_score(self, section_id):
+        return self.section_scores.get(section_id, 0)
 
     def calculate_overall_score(self):
         if self.section_scores:
